@@ -1,0 +1,219 @@
+// Creates a file 'abc.tsv'
+[nuwani@LAPTOP-2OMR359V ~]$ touch abc.tsv
+
+// Open the file "abc.tsv" using the "vi" text editor
+[nuwani@LAPTOP-2OMR359V ~]$ vi abc.tsv
+[nuwani@LAPTOP-2OMR359V ~]$ more abc.tsv
+aa      22      35      44
+bb      11      55      66
+cc      77      85      46
+dd      87      56      25
+ee      45      25      63
+ff      78      14      98
+gg      78      56      25
+hh      75      62      15
+ii      72      42      16
+jj      95      12      85
+kk      75      16      75
+ll      42      95      36
+
+// Extracts the tab seperated first column
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d$'\t' -f1 abc.tsv
+aa
+bb
+cc
+dd
+ee
+ff
+gg
+hh
+ii
+jj
+kk
+ll
+
+// Extracts the third column using space as a delimiter
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d " " -f3 abc.tsv
+aa      22      35      44
+bb      11      55      66
+cc      77      85      46
+dd      87      56      25
+ee      45      25      63
+ff      78      14      98
+gg      78      56      25
+hh      75      62      15
+ii      72      42      16
+jj      95      12      85
+kk      75      16      75
+ll      42      95      36
+
+// Displays the first 2 lines of abc.tsv
+[nuwani@LAPTOP-2OMR359V ~]$ head -n2 abc.tsv
+aa      22      35      44
+bb      11      55      66
+
+// Displays the last 2 lines of abc.tsv
+[nuwani@LAPTOP-2OMR359V ~]$ tail -n2 abc.tsv
+kk      75      16      75
+ll      42      95      36
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d\t -f1 abc.tsv
+aa      22      35      44
+bb      11      55      66
+cc      77      85      46
+dd      87      56      25
+ee      45      25      63
+ff      78      14      98
+gg      78      56      25
+hh      75      62      15
+ii      72      42      16
+jj      95      12      85
+kk      75      16      75
+ll      42      95      36
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d ' ' -f1 abc.tsv
+aa      22      35      44
+bb      11      55      66
+cc      77      85      46
+dd      87      56      25
+ee      45      25      63
+ff      78      14      98
+gg      78      56      25
+hh      75      62      15
+ii      72      42      16
+jj      95      12      85
+kk      75      16      75
+ll      42      95      36
+[nuwani@LAPTOP-2OMR359V ~]$ ^C
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d ' ' -f1 abc.tsv
+aa      22      35      44
+bb      11      55      66
+cc      77      85      46
+dd      87      56      25
+ee      45      25      63
+ff      78      14      98
+gg      78      56      25
+hh      75      62      15
+ii      72      42      16
+jj      95      12      85
+kk      75      16      75
+ll      42      95      36
+
+// Edit the abc.tsv file, remove tabs and add spaces between values
+[nuwani@LAPTOP-2OMR359V ~]$ vi abc.tsv
+
+// Again Extracts the space seperated first column
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d ' ' -f1 abc.tsv
+aa
+bb
+cc
+dd
+ee
+ff
+gg
+hh
+ii
+jj
+kk
+ll
+
+// Extracts the space seperated second column
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d ' ' -f2 abc.tsv
+22
+11
+77
+87
+45
+78
+78
+75
+72
+95
+75
+42
+
+// Display first 10 lines
+[nuwani@LAPTOP-2OMR359V ~]$ head abc.tsv
+aa 22 35 44
+bb 11 55 66
+cc 77 85 46
+dd 87 56 25
+ee 45 25 63
+ff 78 14 98
+gg 78 56 25
+hh 75 62 15
+ii 72 42 16
+jj 95 12 85
+
+// Display first 8 lines (from head)
+[nuwani@LAPTOP-2OMR359V ~]$ head -8 abc.tsv
+aa 22 35 44
+bb 11 55 66
+cc 77 85 46
+dd 87 56 25
+ee 45 25 63
+ff 78 14 98
+gg 78 56 25
+hh 75 62 15
+
+// Display first line
+[nuwani@LAPTOP-2OMR359V ~]$ head -1 abc.tsv
+aa 22 35 44
+
+// Display last line
+[nuwani@LAPTOP-2OMR359V ~]$ tail -1 abc.tsv
+ll 42 95 36
+
+// Display first 100 lines (from head)
+[nuwani@LAPTOP-2OMR359V ~]$ head -100 abc.tsv
+aa 22 35 44
+bb 11 55 66
+cc 77 85 46
+dd 87 56 25
+ee 45 25 63
+ff 78 14 98
+gg 78 56 25
+hh 75 62 15
+ii 72 42 16
+jj 95 12 85
+kk 75 16 75
+ll 42 95 36
+
+// Extracts the 8th line
+[nuwani@LAPTOP-2OMR359V ~]$ head -n8 abc.tsv | tail -n1
+hh 75 62 15
+
+// Prints the number of columns (seperated by space)
+[nuwani@LAPTOP-2OMR359V ~]$ awk '{print NF; exit}' abc.tsv
+4
+
+// Prints the number of columns (seperated by tabs)
+[nuwani@LAPTOP-2OMR359V ~]$ awk -F'\t' '{print NF; exit}' abc.tsv
+1
+
+// Prints the 3rd column using awk
+[nuwani@LAPTOP-2OMR359V ~]$ awk '{print $3}' abc.tsv
+35
+55
+85
+56
+25
+14
+56
+62
+42
+12
+16
+95
+
+// Count the number of lines
+[nuwani@LAPTOP-2OMR359V ~]$ wc -l abc.tsv
+12 abc.tsv
+
+// Extracts the first 10 lines and Search for "dd" in those first 10 lines
+[nuwani@LAPTOP-2OMR359V ~]$ head -n10 abc.tsv | grep 'dd'
+dd 87 56 25
+
+// Extracts the first 7 lines and Search for "56" in those first 10 lines
+[nuwani@LAPTOP-2OMR359V ~]$ head -n7 abc.tsv | grep '56'
+dd 87 56 25
+gg 78 56 25
+[nuwani@LAPTOP-2OMR359V ~]$
