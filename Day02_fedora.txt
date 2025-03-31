@@ -1,0 +1,135 @@
+// create a file
+[nuwani@LAPTOP-2OMR359V ~]$ vi test.csv
+
+//display the contents of test.csv one pageat a time
+[nuwani@LAPTOP-2OMR359V ~]$ more test.csv
+aa,12,13,15
+bb,21,22,23
+cc,31,32,33
+dd,45,46,47
+ee,52,53,54
+
+//Allows scrolling up and down
+[nuwani@LAPTOP-2OMR359V ~]$ less test.csv
+-bash: less: command not found
+
+// Extracts the 1st and 2nd columns, using ',' as the delimiter
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d, -f1,2 test.csv
+aa,12
+bb,21
+cc,31
+dd,45
+ee,52
+
+// Extracts the 1st and 3rd columns, using ',' as the delimiter
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d, -f1,3 test.csv
+aa,13
+bb,22
+cc,32
+dd,46
+ee,53
+
+// Extract only the 2nd field
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d, -f2 test.csv
+12
+21
+31
+45
+52
+
+//Displays the first 3 rows of the file test.csv
+[nuwani@LAPTOP-2OMR359V ~]$ head -3 test.csv
+aa,12,13,15
+bb,21,22,23
+cc,31,32,33
+
+// Displays the last 3 lines of 'test.csv'
+[nuwani@LAPTOP-2OMR359V ~]$ tail -3 test.csv
+cc,31,32,33
+dd,45,46,47
+ee,52,53,54
+
+// Extracts the 1st and 2nd columns from 'test.csv' and saves them in 'test1.csv'
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d, -f1,2 test.csv > test1.csv
+
+[nuwani@LAPTOP-2OMR359V ~]$ ls
+test.csv  test1.csv
+
+[nuwani@LAPTOP-2OMR359V ~]$ more test1.csv
+aa,12
+bb,21
+cc,31
+dd,45
+ee,52
+
+// Counts the number of lines in 'test3.csv'
+[nuwani@LAPTOP-2OMR359V ~]$ wc -l test1.csv
+5 test1.csv
+
+// Extracts the first 3 rows from test.csv and appends (>>) them to rows_test2.csv
+[nuwani@LAPTOP-2OMR359V ~]$ head -3 test.csv >> test2.csv
+[nuwani@LAPTOP-2OMR359V ~]$ more test2.csv
+aa,12,13,15
+bb,21,22,23
+cc,31,32,33
+[nuwani@LAPTOP-2OMR359V ~]$ cut -d, -f1,2 test.csv >> test3.csv
+[nuwani@LAPTOP-2OMR359V ~]$ more test3.csv
+aa,12
+bb,21
+cc,31
+dd,45
+ee,52
+
+// Prints the first column of 'test.csv', using ',' as the delimiter
+[nuwani@LAPTOP-2OMR359V ~]$ awk -F, '{print$1}' test.csv
+aa
+bb
+cc
+dd
+ee
+
+// Prints the third column
+[nuwani@LAPTOP-2OMR359V ~]$ awk -F, '{print$3}' test.csv
+13
+22
+32
+46
+53
+
+// List all files and directories in the current location
+[nuwani@LAPTOP-2OMR359V ~]$ ls
+test.csv  test1.csv  test2.csv  test3.csv
+
+// List files with details (permissions, owner, size, date) in order of modification time (oldest first)
+[nuwani@LAPTOP-2OMR359V ~]$ ls -ltr
+total 16
+-rw-r--r-- 1 nuwani nuwani 60 Mar 31 10:40 test.csv
+-rw-r--r-- 1 nuwani nuwani 30 Mar 31 12:04 test1.csv
+-rw-r--r-- 1 nuwani nuwani 36 Mar 31 12:09 test2.csv
+-rw-r--r-- 1 nuwani nuwani 30 Mar 31 12:10 test3.csv
+
+//Find all the .csv in the location
+[nuwani@LAPTOP-2OMR359V ~]$ find *.csv
+test.csv
+test1.csv
+test2.csv
+test3.csv
+
+//Set read-only (r--r--r--) permission for everyone on 'test.csv'
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 444 test.csv
+[nuwani@LAPTOP-2OMR359V ~]$ ls -ltr
+total 16
+-r--r--r-- 1 nuwani nuwani 60 Mar 31 10:40 test.csv
+-rw-r--r-- 1 nuwani nuwani 30 Mar 31 12:04 test1.csv
+-rw-r--r-- 1 nuwani nuwani 36 Mar 31 12:09 test2.csv
+-rw-r--r-- 1 nuwani nuwani 30 Mar 31 12:10 test3.csv
+
+// Grants the owner full permissions (rwx), while others have read-only access (r--r--) 
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 744 test.csv
+[nuwani@LAPTOP-2OMR359V ~]$ ls -ltr
+total 16
+-rwxr--r-- 1 nuwani nuwani 60 Mar 31 10:40 test.csv
+-rw-r--r-- 1 nuwani nuwani 30 Mar 31 12:04 test1.csv
+-rw-r--r-- 1 nuwani nuwani 36 Mar 31 12:09 test2.csv
+-rw-r--r-- 1 nuwani nuwani 30 Mar 31 12:10 test3.csv
+[nuwani@LAPTOP-2OMR359V ~]$
