@@ -1,0 +1,52 @@
+[nuwani@LAPTOP-2OMR359V ~]$ pwd
+/home/nuwani
+
+[nuwani@LAPTOP-2OMR359V ~]$ ls
+abc.tsv  test.csv  test1.csv  test2.csv  test3.csv
+
+[nuwani@LAPTOP-2OMR359V ~]$ ls -a
+.  ..  .bash_history  .bash_logout  .bash_profile  .bashrc  abc.tsv  test.csv  test1.csv  test2.csv  test3.csv
+
+[nuwani@LAPTOP-2OMR359V ~]$ ls -ltr
+total 20
+-rwxr--r-- 1 nuwani nuwani  60 Mar 31 10:40 test.csv
+-rw-r--r-- 1 nuwani nuwani  30 Mar 31 12:04 test1.csv
+-rw-r--r-- 1 nuwani nuwani  36 Mar 31 12:09 test2.csv
+-rw-r--r-- 1 nuwani nuwani  30 Mar 31 12:10 test3.csv
+-rw-r--r-- 1 nuwani nuwani 144 Mar 31 13:27 abc.tsv
+
+[nuwani@LAPTOP-2OMR359V ~]$ date
+Mon Mar 31 19:05:11 +0530 2025
+
+[nuwani@LAPTOP-2OMR359V ~]$ date +%d
+31
+
+
+[nuwani@LAPTOP-2OMR359V ~]$ date +%y
+25
+[nuwani@LAPTOP-2OMR359V ~]$ vi program1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 program1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./program1.sh
+Who are you?
+nuwani
+Enter number 1
+5
+Enter number 2
+8
+Enter number 3
+6
+hi nuwani
+Summation  19
+Average  6
+
+[nuwani@LAPTOP-2OMR359V ~]$ vi program2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 program2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./program2.sh
+Enter number 01
+5
+Enter number 02
+2
+Addition	7
+Substraction  3
+Multiplication  10
+Division  2
