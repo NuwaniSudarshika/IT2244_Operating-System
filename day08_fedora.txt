@@ -1,0 +1,68 @@
+
+v)	      *
+	     * *
+	    * * *
+	   * * * *
+	  * * * * *
+	 * * * * * *
+	* * * * * * *
+	
+[nuwani@LAPTOP-2OMR359V ~]$ vi 411q1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 411q1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./411q1.sh
+Enter the number of rows :
+6
+      *
+     * *
+    * * *
+   * * * *
+  * * * * *
+ * * * * * *
+[nuwani@LAPTOP-2OMR359V ~]$ more 411q1.sh
+echo "Enter the number of rows : "
+read x
+
+for (( i=1; i<=x; i++))
+do
+for (( j=i; j<=x; j++))
+do
+echo -n " "
+done
+for (( k=1; k<=i; k++))
+do
+echo -n "* "
+done
+echo ""
+done
+
+vi)* * * * * * *
+   * * * * * *
+   * * * * * 
+   * * * *
+   * * *
+   * *
+   *
+   
+[nuwani@LAPTOP-2OMR359V ~]$ vi 411q2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 411q2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./411q2.sh
+Enter the number of rows:
+6
+* * * * * *
+* * * * *
+* * * *
+* * *
+* *
+*
+[nuwani@LAPTOP-2OMR359V ~]$ more 411q2.sh
+echo "Enter the number of rows: "
+read x
+
+for (( i=x; i>=1; i--))
+do
+for (( j=i; j>=1; j--))
+do
+echo -n "* "
+done
+echo ""
+done
