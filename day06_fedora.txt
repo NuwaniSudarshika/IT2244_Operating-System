@@ -1,0 +1,158 @@
+Q1).Get the calender and date
+
+[nuwani@LAPTOP-2OMR359V ~]$ date +%d
+16
+------------------------------------------------------------------------------------------
+
+Q2).Get the student name and marks for the 3 subjects from user then calculate
+	output:-
+		Enter the name:Isuru
+		Enter the mark for subject1:80
+		Enter the mark for subject2:90
+		Enter the mark for student3:80
+		
+[nuwani@LAPTOP-2OMR359V ~]$ touch Q2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi Q2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Q2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Q2.sh
+Enter the name:
+nuwani
+Enter mark for subject1:
+80
+Enter mark for subject2:
+90
+Enter mark for subject3:
+80
+[nuwani@LAPTOP-2OMR359V ~]$ more Q2.sh
+echo "Enter the name: "
+read name
+echo "Enter mark for subject1: "
+read x
+echo "Enter mark for subject2: "
+read y
+echo "Enter mark for subject3: "
+read z
+------------------------------------------------------------------------------------------------
+
+Q3).Create calculator with arithmatic operators.
+	output:-
+		Enter the first number:4
+		Enter the second number:2
+		Summation:6
+		Substraction:2
+		Division:2
+		Multiplication:8
+
+[nuwani@LAPTOP-2OMR359V ~]$ touch Q3.sh		
+[nuwani@LAPTOP-2OMR359V ~]$ vi Q3.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Q3.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Q3.sh
+Enter the first number:
+4
+Enter the second number:
+2
+Summation:  6
+Substraction:  2
+Division:  2
+Multiplication:  8
+[nuwani@LAPTOP-2OMR359V ~]$ more Q3.sh
+echo "Enter the first number: "
+read x
+echo "Enter the second number: "
+read y
+sum=$(($x+$y))
+sub=$(($x-$y))
+div=$(($x/$y))
+mul=$(($x*$y))
+echo "Summation: " $sum
+echo "Substraction: " $sub
+echo "Division: " $div
+echo "Multiplication: " $mul
+------------------------------------------------------------------------------------------------
+
+Q4).get the days based on user input number
+	output:-
+		Enter the number : 5
+		Friday
+
+[nuwani@LAPTOP-2OMR359V ~]$ touch Q4.sh		
+[nuwani@LAPTOP-2OMR359V ~]$ vi Q4.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Q4.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Q4.sh
+Enter the number:
+5
+Friday
+[nuwani@LAPTOP-2OMR359V ~]$ more Q4.sh
+echo "Enter the number: "
+read x
+case $x in
+1) echo "Monday" ;;
+2) echo "Tuesday" ;;
+3) echo "Wednesday" ;;
+4) echo "Thursday" ;;
+5) echo "Friday" ;;
+6) echo "Saturday" ;;
+7) echo "Sunday" ;;
+*) echo "Invalid Number" ;;
+esac
+-------------------------------------------------------------------------------------------------
+
+Q5).verify whether your user name is correct or not.(use your name as a incorrect)
+	output:-Enter the name:
+			Mino
+			user name is correct
+			Enter user name:
+			mino
+			user name is incorrect
+			
+[nuwani@LAPTOP-2OMR359V ~]$ touch Q5.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi Q5.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Q5.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Q5.sh
+Enter the username:
+Mino
+User name is correct
+[nuwani@LAPTOP-2OMR359V ~]$ ./Q5.sh
+Enter the username:
+mino
+User name is incorrect
+[nuwani@LAPTOP-2OMR359V ~]$ more Q5.sh
+echo "Enter the username: "
+read name
+if [[ "$name" == "Mino" ]]; then
+echo "User name is correct"
+else
+echo "User name is incorrect"
+fi
+----------------------------------------------------------------------------------------------------
+
+Q6).output:- Enter two numbers:
+			7 5
+			7 is greater than 5
+			
+			Enter two numbers 
+			1 9
+			1 is less than 9
+			
+[nuwani@LAPTOP-2OMR359V ~]$ touch Q6.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi Q6.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Q6.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Q6.sh
+Enter the two number:
+4 5
+4 is less than 5
+[nuwani@LAPTOP-2OMR359V ~]$ ./Q6.sh
+Enter the two number:
+8 3
+8 is greater than 3
+[nuwani@LAPTOP-2OMR359V ~]$ more Q6.sh
+echo "Enter the two number: "
+read x y
+if [[ $x -gt $y ]]; then
+echo "$x is greater than $y"
+elif [[ $x -lt $y ]]; then
+echo "$x is less than $y"
+fi
+-----------------------------------------------------------------------------------------------------
+
+Q7).Create simple calculator using "expr" command same as the Question 3
