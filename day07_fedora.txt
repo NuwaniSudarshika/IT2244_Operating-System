@@ -1,0 +1,235 @@
+Q1).write a code for small astrology based on your life path number for that get date of birth
+from user then calculate life path number.(use switch cate)
+Example:-
+	date: 23
+	
+	calculation for life path number:
+						a=date%10
+						b=date/10
+						c=a+b
+	
+	if life path number:
+					1:Lucky
+					2:carefuly do your work
+					3.storger
+					4.Happy
+					5.can get help
+					6.Doubt
+					7.Sad
+					8.Like
+					9.Courage
+					
+[nuwani@LAPTOP-2OMR359V ~]$ touch Qu1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi Qu1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Qu1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Qu1.sh
+Enter the date of birth:
+23
+can get help
+[nuwani@LAPTOP-2OMR359V ~]$ more Qu1.sh
+echo "Enter the date of birth: "
+read date
+a=$(($date %10))
+b=$((date /10))
+c=$(($a+$b))
+case $c in
+1) echo "Lucky" ;;
+2) echo "Carefuly do your work" ;;
+3) echo "Storger" ;;
+4) echo "Happy" ;;
+5) echo "can get help" ;;
+6) echo "Doubt" ;;
+7) echo "Sad" ;;
+8) echo "Like" ;;
+9) echo "Courage" ;;
+*) echo "Invalid" ;;
+esac
+------------------------------------------------------------------------------------------------
+
+Q2).Give list of numbers then calculate the summation and multiplication
+using for loop.
+Example:-
+	1 2 3 4 5
+		summation = 15
+		multiplication = 120
+		
+[nuwani@LAPTOP-2OMR359V ~]$ vi Qu2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Qu2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Qu2.sh
+Enter numbers separated by space:
+1 2 3 4 5
+Summation: 15
+Multiplication: 120
+[nuwani@LAPTOP-2OMR359V ~]$ more Qu2.sh
+sum=0
+mul=1
+echo "Enter numbers separated by space: "
+read -a numbers
+for num in "${numbers[@]}"
+do
+sum=$(($sum+num))
+mul=$(($mul*num))
+done
+echo "Summation: $sum"
+echo "Multiplication: $mul"
+-------------------------------------------------------------------------------------------------
+
+Q3).print the integers from 1 to 10 using while loop
+
+[nuwani@LAPTOP-2OMR359V ~]$ touch Qu3.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi Qu3.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Qu3.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Qu3.sh
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+[nuwani@LAPTOP-2OMR359V ~]$ more Qu3.sh
+let x=1
+while [ $x -le 10 ]
+do
+echo $x
+x=$(($x+1))
+done
+----------------------------------------------------------------------------------------------------
+
+Q4).print below pattern using nested loop
+
+i)	*
+	* *
+	* * *
+	* * * *
+	* * * * *
+	* * * * * *
+	* * * * * * *
+	
+[nuwani@LAPTOP-2OMR359V ~]$ touch Qu4i.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi Qu4i.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Qu4i.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Qu4i.sh
+Enter the number:
+7
+*
+**
+***
+****
+*****
+******
+*******
+[nuwani@LAPTOP-2OMR359V ~]$ more Qu4i.sh
+echo "Enter the number: "
+read rows
+for ((x=1; x<=rows; x++))
+do
+for ((y=1; y<=x; y++))
+do
+echo -n "*"
+done
+echo ""
+done
+
+ii)	* * * * * * * 
+	* * * * * *
+	* * * * *
+	* * * *
+	* * * 
+	* * 
+	*
+	
+[nuwani@LAPTOP-2OMR359V ~]$ touch Qu4ii.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi Qu4ii.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Qu4ii.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Qu4ii.sh
+Enter the number of rows:
+7
+*******
+******
+*****
+****
+***
+**
+*
+[nuwani@LAPTOP-2OMR359V ~]$ more Qu4ii.sh
+echo "Enter the number of rows: "
+read rows
+for ((i=rows; i>=1; i--))
+do
+for ((j=1; j<=i; j++))
+do
+echo -n "*"
+done
+echo ""
+done
+
+iii)1
+	12
+	123
+	1234
+	12345
+
+[nuwani@LAPTOP-2OMR359V ~]$ touch Qu4iii.sh	
+[nuwani@LAPTOP-2OMR359V ~]$ vi Qu4iii.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Qu4iii.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Qu4iii.sh
+Enter the rows:
+5
+1
+12
+123
+1234
+12345
+[nuwani@LAPTOP-2OMR359V ~]$ more Qu4iii.sh
+echo "Enter the rows: "
+read rows
+for ((i=1; i<=rows; i++))
+do
+for ((j=1; j<=i; j++))
+do
+echo -n $j
+done
+echo ""
+done
+
+iv) 1
+	22
+	333
+	4444
+	55555
+	
+[nuwani@LAPTOP-2OMR359V ~]$ touch Qu4iv.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi Qu4iv.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Qu4iv.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./Qu4iv.sh
+Enter the number of rows:
+5
+1
+22
+333
+4444
+55555
+[nuwani@LAPTOP-2OMR359V ~]$ more Qu4iv.sh
+echo "Enter the number of rows: "
+read rows
+for ((i=1; i<=rows; i++))
+do
+for ((j=1; j<=i; j++))
+do
+echo -n $i
+done
+echo ""
+done
+
+
+v)	      *
+	     * *
+	    * * *
+	   * * * *
+	  * * * * *
+	 * * * * * *
+	* * * * * * *	
