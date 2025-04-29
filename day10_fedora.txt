@@ -1,0 +1,147 @@
+Q1).print multiplication table using for loop
+ 1*2 = 2
+ 2*2 = 4
+ 
+[nuwani@LAPTOP-2OMR359V ~]$ touch 425q1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi 425q1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 425q1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./425q1.sh
+Enter the number :
+5
+1 * 2 = 5
+2 * 2 = 10
+3 * 2 = 15
+4 * 2 = 20
+5 * 2 = 25
+[nuwani@LAPTOP-2OMR359V ~]$ more 425q1.sh
+echo "Enter the number : "
+read x
+for (( i=1; i<=x; i++))
+do
+y=$((x * i))
+echo "$i * 2 = $y"
+done
+
+--------------------------------------------------------------------------------------------------------
+
+Q2).
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+	
+[nuwani@LAPTOP-2OMR359V ~]$ vi 425q2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 425q2.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./425q2.sh
+Enter the number of rows:
+5
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+[nuwani@LAPTOP-2OMR359V ~]$ more 425q2.sh
+echo "Enter the number of rows: "
+read x
+
+for (( i=1; i<=x; i++))
+do
+for (( j=i; j<x; j++))
+do
+echo -n " "
+done
+for (( k=1; k<=((2*i-1)); k++))
+do
+echo -n "*"
+done
+echo ""
+done
+
+for ((i=x-1; i>=1; i--))
+do
+for (( j=x; j>i; j--))
+do
+echo -n " "
+done
+for (( k=1; k<=((2*i-1)); k++))
+do
+echo -n "*"
+done
+echo ""
+done
+
+---------------------------------------------------------------------------------------------------
+
+Q3).*******
+    *     *
+	*     *
+	*     *
+	*     *
+	*******
+	
+[nuwani@LAPTOP-2OMR359V ~]$ vi 425q3.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 425q3.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./425q3.sh
+*******
+*     *
+*     *
+*     *
+*     *
+*******
+[nuwani@LAPTOP-2OMR359V ~]$ more 425q3.sh
+rows=6
+cols=7
+
+for ((i=1; i<=rows; i++))
+do
+    for ((j=1; j<=cols; j++))
+    do
+        if [[ $i -eq 1 || $i -eq $rows || $j -eq 1 || $j -eq $cols ]]
+        then
+            echo -n "*"
+        else
+            echo -n " "
+        fi
+    done
+    echo
+done
+	
+------------------------------------------------------------------------------------------------------------
+Q4).Fibbonacci Series:
+0 1 1 2 3 5 8 13 21 34
+sum of the first 10 Fibbonacci numbers is :88
+
+[nuwani@LAPTOP-2OMR359V ~]$ vi 425q4.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 425q4.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./425q4.sh
+0 1 1 2 3 5 8 13 21 34 
+sum of the first 10 Fibbonacci numbers is : 88
+[nuwani@LAPTOP-2OMR359V ~]$ more 425q4.sh
+a=0
+b=1
+sum=1
+echo -n "$a $b "
+for ((i=1; i<=8; i++))
+do
+fib=$((a+b))
+a=$b
+b=$fib
+
+sum=$((sum+fib))
+
+echo -n "$fib "
+done
+echo "sum of the first 10 Fibbonacci numbers is : $sum"
+
+------------------------------------------------------------------------------------------------------------
+
+Q5).Sum of prime numbers between 1 and 100 is: 1060	
