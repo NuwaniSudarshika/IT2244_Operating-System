@@ -1,0 +1,48 @@
+read three numbers (a,b,c) from the user and store then into three variables.
+Find the least common multiple(LCM) from the first two numbers (a,b) and find the greates common deviser (GCD) 
+for the second two numbers
+
+[nuwani@LAPTOP-2OMR359V ~]$ touch quiz1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ vi quiz1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 quiz1.sh
+[nuwani@LAPTOP-2OMR359V ~]$ ./quiz1.sh
+Enter the first number (a) :
+6
+Enter the second number(b) :
+4
+Enter the third number(c) :
+2
+LCM of 6 and 4 is 12
+GCD of 4 and 2 is 2
+[nuwani@LAPTOP-2OMR359V ~]$ more quiz1.sh
+echo "Enter the first number (a) : "
+read a
+echo "Enter the second number(b) : "
+read b
+echo "Enter the third number(c) : "
+read c
+
+gcd() {
+local x=$1
+local y=$2
+while [ $y -ne 0 ];
+do
+temp=$y
+y=$((x % y))
+x=$temp
+done
+echo $x
+}
+
+lcm() {
+local x=$1
+local y=$2
+local gcd_value=$(gcd $x $y)
+echo $(( (x * y) / gcd_value ))
+}
+
+lcm_ab=$(lcm $a $b)
+echo "LCM of $a and $b is $lcm_ab"
+
+gcd_bc=$(gcd $b $c)
+echo "GCD of $b and $c is $gcd_bc"
