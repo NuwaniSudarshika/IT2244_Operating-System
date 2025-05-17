@@ -1,0 +1,31 @@
+ 1. Read two Strings from user String
+ 1 and String
+ 2
+ 2. Count the characters of each String and print the lengthy String as shown in the Expected output
+ Expected output :
+ Enter String_1
+ Apple
+ Enter String_2
+ Banana
+ Banana is larger than Apple
+ 
+ [nuwani@LAPTOP-2OMR359V ~]$ vi Q3.csv
+[nuwani@LAPTOP-2OMR359V ~]$ chmod 777 Q3.csv
+[nuwani@LAPTOP-2OMR359V ~]$ ./Q3.csv
+Enter string_1: apple
+Enter string_2: banana
+banana greater than apple
+[nuwani@LAPTOP-2OMR359V ~]$ more Q3.csv
+read -p "Enter string_1: " str1
+read -p "Enter string_2: " str2
+
+len1=${#str1}
+len2=${#str2}
+
+if [ $len1 -gt $len2 ]; then
+echo "$str1 greater than $str2"
+elif [ $len1 -lt $len2 ]; then
+echo "$str2 greater than $str1"
+else
+echo "$len1 equal $len2"
+fi

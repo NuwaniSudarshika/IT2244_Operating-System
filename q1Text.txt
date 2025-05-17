@@ -1,0 +1,44 @@
+Question 01
+ Using Command Prompt on a Windows system, write the exact commands to complete the
+ following tasks:
+ • Create New directories named CSC2244 , Marks and Exam on your Desktop.
+ • Inside the CSC2244 directory, create three subdirectories named practical, theory, and exam
+ papers.
+ • Inside each subdirectories, create a text file, a Word document, and a PowerPoint document
+ respectively:
+ Eg:
+ Practical →Word document, PowerPoint document, text file
+ • Create two new excel files in desktop named Icae
+ into the directory Marks
+ Marks and Final
+ Exam
+ Marks and move that files
+ • Copy the Directory Marks into the Exam directory and hide the Exam directory
+ 
+ -----------------------------------------------------------------------------------------------------
+
+cd %userprofile%\Desktop
+mkdir CSC2244 Marks Exam
+cd CSC2244
+mkdir practical theory "exam papers"
+cd practical
+echo "This is a text file." > file.txt
+echo "This is a Word document." > file.docx
+echo "This is a PowerPoint document." > file.pptx
+
+cd ..\theory
+echo "This is a text file." > file.txt
+echo "This is a Word document." > file.docx
+echo "This is a PowerPoint document." > file.pptx
+
+cd ..\"exam papers"
+echo "This is a text file." > file.txt
+echo "This is a Word document." > file.docx
+echo "This is a PowerPoint document." > file.pptx
+cd %userprofile%\Desktop
+echo "ICAE Marks Content" > "Icae Marks.xlsx"
+echo "Final Exam Marks Content" > "Final Exam Marks.xlsx"
+move "Icae Marks.xlsx" "Marks\"
+move "Final Exam Marks.xlsx" "Marks\"
+xcopy /E /I Marks "Exam\Marks"
+attrib +h Exam
